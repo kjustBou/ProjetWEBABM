@@ -4,58 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nous joindre | Atelier Boréal Médias</title>
+  <meta name="description" content="Contactez Atelier Boréal Médias : une question, un projet, une idée ? (Site fictif réalisé dans le cadre d'une formation en développement web.)">
+  <link rel="icon" type="image/svg+xml" href="images/abm-logo.svg">
 
-  <!-- TYPOGRAPHIES : même lien que dans index.html -->
+  <!-- Typographies : mêmes polices que index.html -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="LIEN-GOOGLE-FONTS-ICI" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-  <!-- MÊME FEUILLE DE STYLE que index.html -->
+  <!-- Même feuille de style que index.html -->
   <link rel="stylesheet" href="vitrine-style.css">
 </head>
 <body>
 
   <header>
-    <a href="index-vitrine.html">
+    <a href="index.html">
       <img src="images/abm-logo.png" alt="Logo Atelier Boréal Médias">
-      <span id="fallback-name" style="display:none;"">"Atelier Boréal Médias</span> 
+      <span id="fallback-name" style="display:none;">Atelier Boréal Médias</span>
     </a>
-  
+
     <nav>
-        <a href="index-vitrine.html">Accueil</a>
-        <a href="index-vitrine.html#services">Services</a>
-        <a href="index-vitrine.html#equipe">Équipe</a>
-        <a href="index-vitrine.html#apropos">À propos</a>
+        <a href="index.html">Accueil</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#equipe">Équipe</a>
+        <a href="index.html#apropos">À propos</a>
         <a href="index-contact.html">Contact</a>
     </nav>
   </header>
 
 
-  <!-- ============================================================
-    FORMULAIRE DE CONTACT
-    Mise en page : HTML standard
-    Centré avec max-width dans le CSS
-    Champs : nom (text), courriel (email), message (textarea)
-  ============================================================ -->
+  <!-- Formulaire de contact (démonstration : pas de traitement côté serveur) -->
   <main class="page-contact">
-    <form class="formulaire-contact" action="#" method="post">
-      <div class="form">
-        <h2>Nous joindre</h2>
-        <h3>Une question, un projet, une idée ? Écrivez-nous et nous vous répondrons dans les plus brefs délais.</h3>
-        <form>
-          <label for="nom">Nom complet</label>
-          <input type="text" id="nom" placeholder="Votre nom"><br>
+    <form class="formulaire-contact" action="#">
+      <h2>Nous joindre</h2>
+      <p class="intro-contact">Une question, un projet, une idée ? Écrivez-nous et nous vous répondrons dans les plus brefs délais.</p>
 
-          <label for="email">Adresse courriel</label>
-          <input type="email" id="email" placeholder="votre@courriel.com"><br>
-
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Décrivez votre demande..."></textarea><br>
-
-          <button type="button">Envoyer</button>
-        </form>
+      <div class="champ">
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="name" required>
       </div>
-    </form>
 
+      <div class="champ">
+        <label for="email">Adresse courriel</label>
+        <input type="email" id="email" name="email" placeholder="votre@courriel.com" autocomplete="email" required>
+      </div>
+
+      <div class="champ">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Décrivez votre demande..." required></textarea>
+      </div>
+
+      <button type="submit">Envoyer le message</button>
+    </form>
   </main>
 
   <footer>
@@ -66,21 +66,21 @@
       </div>
 
       <nav class="footer-nav">
-          <a href="index-vitrine.html">Accueil</a>
-          <a href="index-vitrine.html#services">Services</a>
-          <a href="index-vitrine.html#equipe">Équipe</a>
-          <a href="index-vitrine.html#apropos">À propos</a>
+          <a href="index.html">Accueil</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#equipe">Équipe</a>
+          <a href="index.html#apropos">À propos</a>
           <a href="index-contact.html">Contact</a>
       </nav>
-     
+
       <address>
         Atelier Boréal Médias Inc.<br>
         1751, rue Richardson, bureau 3.105<br>
         Montréal (Québec) H3K 1G6<br>
         <a href="mailto:info@boreal-medias.ca">info@boreal-medias.ca</a>
       </address>
-    
-    </div> 
+
+    </div>
   </footer>
 
 </body>
