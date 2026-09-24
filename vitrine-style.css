@@ -11,36 +11,47 @@
   --couleur-texte-doux:   #7A4A2E;
   --couleur-bordure:      #E8D5C4;
   --couleur-sombre:       #1A1A18;
+  --couleur-accent-clair: #FAA266;
 
   /* TYPOGRAPHIES */
   --typo-titre:   'IBM Plex Serif', serif;
   --typo-corps:   'IBM Plex Sans', sans-serif;
-  
-  margin: 0; 
-  padding: 0;
-  box-sizing: border-box;
 
   --border-radius-img: 12px;
+}
 
+/* RÉINITIALISATION */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   font-family: var(--typo-corps);
   background-color: var(--couleur-fond);
   color: var(--couleur-texte);
   line-height: 1.6;
-  min-width: 1666px;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+img {
+  max-width: 100%;
+}
+
+/* SECTION 1 : HEADER + NAVIGATION */
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
   padding: 1rem 1.5rem;
   background-color: var(--couleur-fond-alt);
   border-bottom: 1px solid var(--couleur-bordure);
-  min-width: 1500px;
 }
 
 header img {
@@ -50,6 +61,7 @@ header img {
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   font-size: 1.7rem;
 }
@@ -64,18 +76,16 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* SECTION 2: HERO */
+/* SECTION 2 : HERO */
 
 .hero {
-  position:relative;
+  position: relative;
   background-image: url("images/photo-paysage-boreal.jpg");
   background-size: cover;
-  background-position: top; 
+  background-position: top;
   background-repeat: no-repeat;
 
   min-height: 150vh;
-  padding: 1;
-  /*margin-bottom: 2%;*/
 
   display: flex;
   flex-direction: column;
@@ -87,68 +97,41 @@ nav a:hover {
 
 .hero-contenu {
   max-width: 950px;
+  padding: 0 1rem;
 }
 
 .hero-contenu h1 {
   font-family: var(--typo-titre);
-  font-size: 3rem;
-  font-weight: 1000;
-  color: #FAA266;
-  background-color:#2E5E4E;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  color: var(--couleur-accent-clair);
+  background-color: var(--couleur-secondaire);
   border-radius: var(--border-radius-img);
 }
-
 
 .hero-contenu h2 {
   font-family: var(--typo-titre);
-  color: #FAA266;
-  background-color: #7A4A2E;
+  color: var(--couleur-accent-clair);
+  background-color: var(--couleur-texte-doux);
   border-radius: var(--border-radius-img);
 }
 
-.hero-contenu a {
+.bouton-cta {
+  display: inline-block;
   color: var(--couleur-secondaire);
   text-decoration: none;
   padding: 10px;
-  background-color:#E8D5C4;
+  background-color: var(--couleur-bordure);
   border-radius: var(--border-radius-img);
 }
 
-input, textarea {
-  width: 500px;
-  height: 100px;
-  border: 3px solid;
-  border-radius: var(--border-radius-img);
-  background-color: #E8D5C4;
-}
-
-label {
-  font-weight: bold;
-}
-
-button {
-  width: 130px;
-  height: 45px;
-  background-color:#C4622D;
-  color: #F2E8DC;
-  border: 3px solid;
-  border-color: #1A1A18;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-
-/*SECTION 3: SERVICES - 3 CARTES ÉGALES - */
-
+/* SECTION 3 : SERVICES - 3 CARTES ÉGALES */
 
 .services h2 {
   text-align: center;
   font-style: italic;
   font-size: 2.2rem;
-  margin: 50px;
-  margin-bottom: 30px;
+  margin: 50px 50px 30px;
   color: var(--couleur-accent);
 }
 
@@ -162,18 +145,16 @@ button:hover {
 .carte-service {
   text-align: center;
   padding: 30px;
-  
 }
 
 .carte-service img {
-  width:80%;
+  width: 80%;
   height: 650px;
   object-fit: cover;
   border-radius: var(--border-radius-img);
   margin-bottom: 2px;
-
-
 }
+
 .carte-service h3 {
   font-size: 1.7rem;
   font-weight: 700;
@@ -181,8 +162,7 @@ button:hover {
   color: var(--couleur-secondaire);
   padding: 2%;
   border-radius: var(--border-radius-img);
-  background-color: #E8D5C4;
-  backdrop-filter: blur(4px);
+  background-color: var(--couleur-bordure);
 }
 
 .carte-service p {
@@ -190,25 +170,17 @@ button:hover {
   line-height: 1.6;
 }
 
-
-/*section {
-  overflow-x: hidden;
-}*/
-
 /* SECTION 4 : À PROPOS */
 
 .apropos-contenu {
   display: flex;
   flex-direction: row;
-  row-gap: 20%;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
   margin: auto;
-  margin-top: 100;
   padding: 80px 20px;
   max-width: 1700px;
-  
 }
 
 .apropos-texte {
@@ -223,22 +195,21 @@ button:hover {
   font-family: var(--typo-titre);
   font-size: 2.6rem;
   margin-bottom: 25px;
-  color: #2E5E4E;
+  color: var(--couleur-secondaire);
 }
 
 .apropos-image {
-  flex: 0 0 1200px;
-  width: 80%;
+  flex: 0 1 50%;
 }
 
-.apropos-image img{
+.apropos-image img {
   width: 100%;
   height: auto;
   border-radius: var(--border-radius-img);
   object-fit: cover;
 }
 
-/*SECTION 5 - EQUIPE GRILLE 2x2 */
+/* SECTION 5 : ÉQUIPE - GRILLE 2x2 */
 
 .equipe h2 {
   text-align: center;
@@ -255,7 +226,7 @@ button:hover {
   gap: 50px 150px;
   padding: 20px;
   max-width: 900px;
-  margin:  0 auto;
+  margin: 0 auto;
 }
 
 .carte-membre {
@@ -279,7 +250,7 @@ button:hover {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 5px;
-  color: var(--couleur-texte-doux)
+  color: var(--couleur-texte-doux);
 }
 
 .carte-membre .texte-membre {
@@ -287,16 +258,17 @@ button:hover {
   flex-direction: column;
 }
 
+/* SECTION 6 : FOOTER */
 
-/*SECTION 6 - FOOTER */
 .footer-contenu {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
   background-color: var(--couleur-fond-alt);
-  border-bottom: 1px solid var(--couleur-bordure);
-  min-width: 1500px;  
+  border-top: 1px solid var(--couleur-bordure);
   margin-top: auto;
 }
 
@@ -305,23 +277,154 @@ button:hover {
   width: auto;
 }
 
+/* PAGE CONTACT */
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  max-width: 20%;
-  align-items: center;
+.page-contact {
+  flex: 1;
+  padding: 2rem 1rem;
 }
 
 .formulaire-contact {
-   display: flex;
-   justify-content: center;  
-}
-
-
-.page-contact {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.intro-contact {
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 3px solid;
+  border-radius: var(--border-radius-img);
+  background-color: var(--couleur-bordure);
+}
+
+input {
+  height: 50px;
+}
+
+textarea {
+  height: 140px;
+  resize: vertical;
+}
+
+button {
+  padding: 0.6rem 1.5rem;
+  min-height: 45px;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: var(--couleur-accent);
+  color: var(--couleur-fond-alt);
+  border: 3px solid var(--couleur-sombre);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* TABLETTE ET MOBILE */
+
+@media (max-width: 900px) {
+  nav {
+    font-size: 1.1rem;
+    gap: 12px;
+  }
+
+  .services h2,
+  .equipe h2 {
+    font-size: 1.8rem;
+    margin: 30px 20px;
+  }
+
+  .grille-services {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .carte-service img {
+    width: 100%;
+    height: 400px;
+  }
+
+  .carte-service h3 {
+    font-size: 1.4rem;
+  }
+
+  .carte-service p {
+    font-size: 1.1rem;
+  }
+
+  .apropos-contenu {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .apropos-texte {
+    font-size: 1.1rem;
+  }
+
+  .apropos-texte h2 {
+    font-size: 2rem;
+  }
+
+  .apropos-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .grille-equipe {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .carte-membre {
+    margin: 0;
+  }
+
+  .carte-membre img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .carte-membre h3 {
+    font-size: 1.4rem;
+  }
+
+  .footer-contenu {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
+
+  nav {
+    justify-content: center;
+  }
 }
